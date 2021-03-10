@@ -113,20 +113,20 @@ The step setup parameters are
 </kbd>
  
 
-4. Open the Flow by clicking on the name. The canvas looks like this.
+4. Open the Flow by clicking on the name. The canvas looks like this. The upper track uses the Slack-specific step; the lower uses the generic step.
 
 <kbd>
   <img src="/media/sn_get_changes_canvas.png" width="750">
 </kbd>
 
-5. Navigate to the step definitions in the CUSTOM tab on the right of the canvas, by highlighting CUSTOM and scrolling down. The may be flagged as In Development. The two custom steps are *SN Get Changes* (yellow icon) and *SN Get Changes For Slack* (green icon). 
+5. Navigate to the step definitions in the CUSTOM draw on the right of the canvas by highlighting CUSTOM and scrolling down. The two new custom steps are *SN Get Changes* (yellow icon) and *SN Get Changes For Slack* (green icon). They may be flagged as In Development.
 <kbd>
-  <img src="/media/custom_steps.png" width="500">
+  <img src="/media/custom_steps.png" width="300">
 </kbd>
 
-6. Optional: Using the gear icon on the right of each step, select *Usage Permissions*. By default, custom steps are accessible only to the user who imported the workflow. Usually, you want to grant wider permissions, e.g. anyone with the Developer role can edit the step, and anyone with the Incident Manager role can use the step.  
+6. Optional: Using the gear icon on the right of each step, select *Usage Permissions*. By default, custom steps are accessible only to the user who imported the workflow. Usually, you want to grant wider permissions, e.g. anyone with the Developer role can edit the step and anyone with the Incident Manager role can use the step. 
 <kbd>
-  <img src="/media/step_usage_permission.png" width="500">
+  <img src="/media/step_usage_permissions.png" width="500">
 </kbd>
 
 7. Optional: Again using the gear icon on the right of each step, select *Edit* and set the step's Current State to Deployed. 
@@ -148,27 +148,28 @@ N.B. Your ServiceNow endpoint user must have read-permission on the Change Reque
 10. Set up the Constants. There is only one for SerivceNow. From the Components button on the top of the canvas, select Constants. The ServiceNow Base URL constant value should have the same Base URL as the endpoint. It is used to construct hyperlinks.
 
 <kbd>
-  <img src="/media/sn_constant.png" width="500">
+  <img src="/media/sn_constant.png" width="700">
 </kbd>
 
 
 # Testing
-Do a browser page reload,  navigate to Messaging > SN Get Changes workflow > SN Get Changes and give it a whirl.
+Perform a browser page reload,  navigate to Messaging > SN Get Changes workflow > SN Get Changes and try it out.
+
 <kbd>
-  <img src="/media/sn_get_changes_messaging.png" width="500">
+  <img src="/media/sn_get_changes_messaging.png" width="750">
 </kbd>
-The form initiates the SN Get Changes custom step in Flow Designer. It lets you experiment with the step's settings. Each form field has help text.
-When the first field, Chat Tool, is set to Slack, the SN Get Changes For Slack step is used. Otherwise, the more generic SN Get Changes step is used.
-You don't have to set a recipient on the form, but if you set yourself as recipient, you will receive an email confirming form settings. 
+
+The form initiates either of the two SN Get Changes custom steps in Flow Designer and allows you to experiment with the step's settings. When the first field, Chat Tool, is set to Slack, the SN Get Changes For Slack step is used. Otherwise, the more generic SN Get Changes step is used. You don't have to set a recipient on the form, but if you set yourself as recipient, you will receive an email confirming form settings. 
  
 <kbd>
-  <img src="/media/sn_get_changes_form.png" width="500">
+  <img src="/media/sn_get_changes_form.png" width="750">
 </kbd>
 
 
 
 
 # Troubleshooting
-Should your SerivceNow query return 0 Changes when you expect several, check your ServiceNow API user has read-access to the Change Request table.
-Debug logs are available in the Flow Designer Activity tab. You can also view the same logs via Integration Builder > Outbound Integrations > SN Get Changes - Event Status Updates.
+* Should your ServiceNow query return 0 Changes when you believe there are changes, check your ServiceNow API user has read-access to the Change Request table.
+* Debug logs are available in the Flow Designer Activity tab. You may also view the same logs but with a larger font-size on a bigger screen via Integration Builder > Outbound Integrations > SN Get Changes - Event Status Updates.
+
 
