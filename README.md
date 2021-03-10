@@ -1,5 +1,5 @@
 # ServiceNow Get Changes FD Steps #
-Grabs a summary of recent ServiceNow Change Requests and formats them for viewing in a chat tool, e.g. Slack, MS Teams. This workflow provides a pair of custom steps you can incorporate into any Flow Designer canvas. For demo purposes, the steps are wrapped in a complete Workflow called SN Get Changes. 
+This xMatters extension grabs a summary of recent ServiceNow Change Requests and formats them for viewing in a chat tool, e.g. Slack, MS Teams. The workflow provides a pair of custom steps you can incorporate into any Flow Designer canvas. For demo purposes, the steps are wrapped in a demo workflow called SN Get Changes. 
 ---------
 <kbd>
   <a href="https://support.xmatters.com/hc/en-us/community/topics">
@@ -11,22 +11,22 @@ Grabs a summary of recent ServiceNow Change Requests and formats them for viewin
 
 
 # Pre-Requisites
-* xMatters instance. If you don't have one, [get one](https://www.xmatters.com/free)!
-* ServiceNow instance to query. A developer instance is just fine. 
-* Something to view the output. A Chat Tool is perfect, e.g. Slack, MS Teams, WebEx Teams. But if it can display plain text, CSV, or markdown, it will do.
+* An xMatters instance. If you don't have one, [get one](https://www.xmatters.com/free)!
+* A ServiceNow instance to query. A developer instance will do just fine. 
+* Something to view the output. This has been designed with a Chat Tool in mind, e.g. Slack, MS Teams, WebEx Teams. But if it can display plain text, CSV, or markdown, it will do.
 
 # Files
-* [SNGetChanges.zip](SNGetChanges.zip) - *SN Get Changes* workflow containing one form, one flow canvas and two custom steps. The steps are *SN Get Changes for Slack* and *SN Get Changes*. 
+* [SNGetChanges.zip](SNGetChanges.zip) - *SN Get Changes* workflow containing one form, one flow canvas and two custom steps. The steps are *SN Get Changes* and *SN Get Changes for Slack*. 
 <kbd>
-    <img src="/media/two_steps.png" width="500">
+    <img src="/media/two_steps.png" width="400">
   </a>
 </kbd>
 
 
 
 # How it works
-So, you're trying to troubleshoot an Incident in Slack, MS Teams or another chat tool. Perhaps a recent Change was to blame? Wouldn't it be great if you could see a summary of those Changes in chat without having to swivel to ServiceNow and hunt through the change list?
-This workflow provides a pair of Custom Steps you can incorporate into any Flow Designer canvas. Both steps query a ServiceNow instance for recent Change Requests, where what counts as 'recent' is highly configurable. One step provides two output streams suitable for use in Slack. The other step provides output in several different formats: CSV, plain text, and markdown - which can be passed into any chat tool or indeed you please.
+You're trying to troubleshoot an Incident in Slack, MS Teams or another chat tool. Perhaps a recent Change was to blame? Wouldn't it be great if you could see a summary of those Changes in chat without having to swivel chairs to ServiceNow and hunt through the change_request table?
+This workflow provides a pair of Custom Steps you can incorporate into any xMatters flow canvas. Both steps query a ServiceNow instance for recent Change Requests. What counts as 'recent' is highly configurable. One step provides output streams suitable for use in Slack. The other step provides output in several different formats: CSV, plain text, and markdown - which can be passed into any chat tool.
 
 To get value out of this xmLabs repo, you should take either Custom Step and incorporate into them to an existing flow canvas. 
 
