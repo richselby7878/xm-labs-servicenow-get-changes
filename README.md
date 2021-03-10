@@ -26,50 +26,55 @@ This xMatters extension grabs a summary of recent ServiceNow Change Requests and
 
 # How it works
 You're trying to troubleshoot an Incident in Slack, MS Teams or another chat tool. Perhaps a recent Change was to blame? Wouldn't it be great if you could see a summary of those Changes in chat without having to swivel chairs to ServiceNow and hunt through the change_request table?
-This workflow provides a pair of Custom Steps you can incorporate into any xMatters flow canvas. Both steps query a ServiceNow instance for recent Change Requests. What counts as 'recent' is highly configurable. One step provides output streams suitable for use in Slack. The other step provides output in several different formats: CSV, plain text, and markdown - which can be passed into any chat tool.
+This workflow provides a pair of Custom Steps you can incorporate into any xMatters flow canvas. Both steps query a ServiceNow instance for recent Change Requests. What counts as 'recent' is highly configurable. One step provides output streams suitable for use in Slack. The other step provides output in several different formats: CSV, plain text, and markdown - which can be passed into any tool.
 
-To get value out of this xmLabs repo, you should take either Custom Step and incorporate into them to an existing flow canvas. 
+To get full value out of this xmLabs project, you should take either Custom Step and incorporate into them to an existing xMatters flow canvas. 
 
-For demo purposes, the steps are wrapped in a complete Workflow called SN Get Changes. There's a kicker form which allows you to experiment with the step's settings. It channels the output to Slack using xMatters built-in Slack steps, but if you don't have Slack you could replace the Slack steps with another tool. There are two custom steps: *SN Get Changes for Slack* (green icon) and *SN Get Changes* (orange icon) . Each step takes exactly the same input parameters, uses them to generate a query for ServiceNow's change_request table, then formats the output.
+For demo purposes, the steps are wrapped in a complete workflow called _SN Get Changes_. There are two custom steps: *SN Get Changes for Slack* (green icon) and *SN Get Changes* (orange icon). Each step takes the same input parameters and uses them to generate a query for ServiceNow's change_request table, then formats the output. Outside of the flow, there's a kicker form which allows you to experiment with the step's settings in the xMatters UI. The form launches the flow; the flow channels the output to Slack using xMatters built-in Slack steps. If you don't have Slack you could replace the Slack steps with some other tool. 
 
-Here's what the output from the Slack-specific step looks like. There's a header message with a link to ServiceNow's Change Request list, followed by individual summary tiles for each Change Request.
-
-<kbd>
-  <img src="/media/slack_output.png" width="500">
-</kbd>
-
-When passing results to xMatters built-in *Slack Post to Channel* step, the Message input is sourced from the output changes\_slackMessage, and the Attachment input (containing the tiles for each change) comes from changes\_slackAttachment.
+Here's what the output from the Slack-specific step looks like. First there's a header with a link to ServiceNow's Change Request list, followed by individual summary tiles for each Change Request.
 
 <kbd>
-  <img src="/media/ptc_step_config.png" width="500">
-</kbd>
-
-Here's what the output from the othe generic step looks like. However, I've piped it into Slack as I don't have another chat tool to hand.
-
-Plain Text output
-<kbd>
-  <img src="/media/txt_output.png" width="500">
-</kbd>
-
-CSV output
-<kbd>
-  <img src="/media/csv_output.png" width="500">
+  <img src="/media/slack_output.png" width="700">
 </kbd>
 
 
-Markdown output
+In the flow canvas, xMatters built-in *Slack Post to Channel* step has two input fields to map. The *Message* input is sourced from *changes\_slackMessage*, and the *Attachment* input (containing the tiles for each change) comes from *changes\_slackAttachment*.
+
 <kbd>
-  <img src="/media/markdown_output.png" width="500">
+  <img src="/media/ptc_step_config.png" width="700">
 </kbd>
 
 
-###Query###
+Here's what the output from the generic step looks like. However, I've piped the output into Slack as I don't have another chat tool to hand.
+
+Plain Text output:
+
+<kbd>
+  <img src="/media/txt_output.png" width="700">
+</kbd>
+
+CSV output:
+
+<kbd>
+  <img src="/media/csv_output.png" width="700">
+</kbd>
+
+
+Markdown output:
+
+<kbd>
+  <img src="/media/markdown_output.png" width="700">
+</kbd>
+
+
+## Query
 The query time frame runs from the beginning of xxx until the end of the current hour. It's exactly equivalent to running the search filter shown below in the ServiceNow UI. For reasons best known to ServiceNow, there are three candidate fields for start date: Planned Start Date, Actual Start Date and Expected Start. All three are considered as part of an 'OR' query. As for the xxx part, this can be set to This Month, Last Year etc - any of the date-range values visible in the ServiceNow filter dropdown. 
 <kbd>
   <img src="/media/snow_query_filter.png" width="500">
 </kbd>
 
-###Step setup###
+## Step setup
 The step setup parameters are  
 * serviceNow\_url - same as the endpoint URL
 * period - values are LastXDays LastXMonths Today Yesterday ThisWeek LastWeek ThisMonth LastMonth ThisQuarter LastQuarter ThisYear LastYear OneYearAgo LastHour Last2Hours
@@ -81,7 +86,6 @@ The step setup parameters are
 <kbd>
   <img src="/media/step_setup.png" width="500">
 </kbd>
-
 
 
 ****
