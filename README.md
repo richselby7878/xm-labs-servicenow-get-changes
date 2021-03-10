@@ -100,7 +100,7 @@ The step setup parameters are
 </kbd>
 
 
-2. Click the _Open Workflow_ button. You are now in the demo workflow, *SN Get Changes*. You will see just a single form also called *SN Get Changes*. If other users are allowed to test the step via the kicker form, you will need to set Sender Permissions. To do this, click the left most button (says Web UI, Mobile) and then Sender Permissions. Add any other users or roles as appropriate. N.B. This permnission is just to use the form to lauch the step. It's not use / edit permission for the custom steps themselves. 
+2. Click the _Open Workflow_ button. You are now in the demo workflow, *SN Get Changes*. You will see just a single form also called *SN Get Changes*. If other users are allowed to test the step via the kicker form, you will need to set Sender Permissions. To do this, click the left most button (says Web UI, Mobile) and then Sender Permissions. Add any other users or roles as appropriate. N.B. This permission is just to use the form to lauch the step. It is _not_ use / edit permission for the custom steps themselves. 
 
 <kbd>
   <img src="/media/sender_permissions.png" width="300">
@@ -119,34 +119,34 @@ The step setup parameters are
   <img src="/media/sn_get_changes_canvas.png" width="750">
 </kbd>
 
-5. The two custom steps are *SN Get Changes* (yellow icon) and *SN Get Changes For Slack* (green icon). Navigate to the step definitions in the CUSTOM tab on the right of the canvas, by highlighting CUSTOM and scrolling down. The may be flagged as In Development. 
+5. Navigate to the step definitions in the CUSTOM tab on the right of the canvas, by highlighting CUSTOM and scrolling down. The may be flagged as In Development. The two custom steps are *SN Get Changes* (yellow icon) and *SN Get Changes For Slack* (green icon). 
 <kbd>
   <img src="/media/custom_steps.png" width="500">
 </kbd>
 
-6. Optional: Using the gear icon on the right of each step, select *Usage Permissions*. By default, custom steps are accessible only to the user who imported the workflow. Usually, you want to grant wider permissions, e.g. so anyone with the Developer role can edit the step, and anyone with the Incident Manager role can use the step.  
+6. Optional: Using the gear icon on the right of each step, select *Usage Permissions*. By default, custom steps are accessible only to the user who imported the workflow. Usually, you want to grant wider permissions, e.g. anyone with the Developer role can edit the step, and anyone with the Incident Manager role can use the step.  
 <kbd>
   <img src="/media/step_usage_permission.png" width="500">
 </kbd>
 
 7. Optional: Again using the gear icon on the right of each step, select *Edit* and set the step's Current State to Deployed. 
 <kbd>
-  <img src="/media/step_deployed.png" width="500">
+  <img src="/media/step_deployed.png" width="300">
 </kbd>
 
 
-8. Set up the Endpoints. From the Components button on the top of the canvas, select Endpoints. Edit the ServiceNow endpoint to connect to a valid ServiceNow instance. Update the Base URL, then enter a Username and Password. Make sure it says Connected before you Save. 
-
+8. Set up the Endpoints. From the Components button on the top of the canvas, select *Endpoints*. Edit the _ServiceNow_ endpoint to connect to a valid ServiceNow instance. Update the Base URL, then enter a Username and Password. Make sure it says Connected before you Save. 
 N.B. Your ServiceNow endpoint user must have read-permission on the Change Request table. This could be granted through ServiceNow's itil role or any other way. If you plan to use the new steps as part of the standard xMatters ServiceNow integration workflow, then the api user does not typically have this permission, so you may well need to add it.
 
 <kbd>
-  <img src="/media/sn_endpoint.png" width="500">
+  <img src="/media/sn_endpoint.png" width="750">
 </kbd>
 
-9. Optional: Set up the Slack endpoint, if you want to use the demo workflow with Slack. 
+9. Optional: Set up the Slack endpoint, if you plan to use the demo workflow with a Slack instance. 
 
 
 10. Set up the Constants. There is only one for SerivceNow. From the Components button on the top of the canvas, select Constants. The ServiceNow Base URL constant value should have the same Base URL as the endpoint. It is used to construct hyperlinks.
+
 <kbd>
   <img src="/media/sn_constant.png" width="500">
 </kbd>
