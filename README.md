@@ -1,6 +1,5 @@
-# ServiceNow Get Changes FD Steps
-Grabs a summary of recent ServiceNow Change Requests and formats them for viewing in a chat tool, e.g. Slack, MS Teams.  
-This workflow provides a pair of custom steps you can incorporate into any Flow Designer canvas. For demo purposes, the steps are wrapped in a complete Workflow called SN Get Changes. 
+# ServiceNow Get Changes FD Steps#
+Grabs a summary of recent ServiceNow Change Requests and formats them for viewing in a chat tool, e.g. Slack, MS Teams. This workflow provides a pair of custom steps you can incorporate into any Flow Designer canvas. For demo purposes, the steps are wrapped in a complete Workflow called SN Get Changes. 
 ---------
 <kbd>
   <a href="https://support.xmatters.com/hc/en-us/community/topics">
