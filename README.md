@@ -51,7 +51,7 @@ Here's what the output from the generic step looks like. However, I've piped the
 Plain Text output:
 
 <kbd>
-  <img src="/media/txt_output.png" width="700">
+  <img src="/media/txt_output.png" width="500">
 </kbd>
 
 CSV output:
@@ -69,22 +69,23 @@ Markdown output:
 
 
 ## Query
-The query time frame runs from the beginning of xxx until the end of the current hour. It's exactly equivalent to running the search filter shown below in the ServiceNow UI. For reasons best known to ServiceNow, there are three candidate fields for start date: Planned Start Date, Actual Start Date and Expected Start. All three are considered as part of an 'OR' query. As for the xxx part, this can be set to This Month, Last Year etc - any of the date-range values visible in the ServiceNow filter dropdown. 
+The query time frame runs from the beginning of xxx until the end of the current hour. It's exactly equivalent to running the search filter shown below in the ServiceNow UI. For reasons best known to ServiceNow, there are three candidate fields for start date: Planned Start Date, Actual Start Date and Expected Start. All three are considered as part of an 'OR' query. As for the xxx part, this can be set to This Month, Last Year etc - any of the special date-range values visible in the ServiceNow filter dropdown. 
+
 <kbd>
-  <img src="/media/snow_query_filter.png" width="500">
+  <img src="/media/snow_query_filter.png" width="800">
 </kbd>
 
 ## Step setup
 The step setup parameters are  
-* serviceNow\_url - same as the endpoint URL
-* period - values are LastXDays LastXMonths Today Yesterday ThisWeek LastWeek ThisMonth LastMonth ThisQuarter LastQuarter ThisYear LastYear OneYearAgo LastHour Last2Hours
-* X - Only used when period is either LastXDays or LastXMonths. Legal values of x are LastXDays => 7,60,90,120. LastXMonths => 3,6,9,12.
-* limit - limit the mumber of Changes displayed, e.g. 10 Changes. 
-* orderBy\_field - any field name recognised by ServiceNow. Use the name rather than the label
-* order - ASC or DESC. Default is ASC
-* characterLimit  -  sets an upper character-limit, e.g. 10000 characters. In the Slack version of the step, the limit omly applies to the slackAttachment output step. In the generic version, the limit applies to the markdown output. The output is truncated at the end of the Change Request before the character limit is exceeded. This is handy as some tools limit the maximum length of chat posts. In WebEx Teams, for example, it's only 7400 characters long. If you are unaware of any specific limit, leave this at at default 20000, which is the maximum size allowed for a Flow Designer input step.
+* _serviceNow\_url_ - same as the endpoint URL
+* _period_ - values are LastXDays LastXMonths Today Yesterday ThisWeek LastWeek ThisMonth LastMonth ThisQuarter LastQuarter ThisYear LastYear OneYearAgo LastHour Last2Hours
+* _X_ - Only used when period is either LastXDays or LastXMonths. Legal values of x are LastXDays => 7,60,90,120. LastXMonths => 3,6,9,12.
+* _limit_ - limit the mumber of Changes displayed, e.g. 10 Changes. 
+* _orderBy\_field_ - any field name recognised by ServiceNow. Use the name rather than the label
+* _order_ - ASC or DESC. Default is ASC
+* _characterLimit_  -  sets an upper character-limit, e.g. 10000 characters. In the Slack version of the step, the limit only applies to the slackAttachment output step. In the generic version, the limit applies to the markdown output. The output is truncated at the end of the Change Request before the character limit is exceeded. This is handy as some tools limit the maximum length of chat posts. In WebEx Teams, for example, a single message can only be 7400 characters long. If you are unaware of any specific limit, leave this at at default 20000, which is the maximum size allowed for a Flow Designer input step.
 <kbd>
-  <img src="/media/step_setup.png" width="500">
+  <img src="/media/step_setup.png" width="700">
 </kbd>
 
 
@@ -93,30 +94,34 @@ The step setup parameters are
 # Installation
 
 ## xMatters set up
-1. Log into xMatters as a user with the Developer role. Navigate to Workflows, click the Import button on the top right and import the [SNGetChanges.zip](SNGetChanges.zip) file. You will see the *Workflow imported successfully* popup.
+1. Log into xMatters as a user with the Developer role. Navigate to Workflows, click the Import button on the top right and import the [SNGetChanges.zip](SNGetChanges.zip) file. You will see the success popup.
 <kbd>
   <img src="/media/workflow_imported.png" width="500">
 </kbd>
 
-2. Click the _Open Workflow_ button. You are now in the demo workflow, *SN Get Changes*. You will see just a single form also called *SN Get Changes*. If other users are allowed to test the step via the form launcher, you will need to set Sender Permissions on all four forms. To do this, click the left most button (says Web UI, Mobile) and then Sender Permissions. Add any other users or roles as appropriate. N.B. This is just to use the form to lauch the step. It's not about use / edit persmission of the steps themselves. 
+
+2. Click the _Open Workflow_ button. You are now in the demo workflow, *SN Get Changes*. You will see just a single form also called *SN Get Changes*. If other users are allowed to test the step via the kicker form, you will need to set Sender Permissions. To do this, click the left most button (says Web UI, Mobile) and then Sender Permissions. Add any other users or roles as appropriate. N.B. This permnission is just to use the form to lauch the step. It's not use / edit permission for the custom steps themselves. 
+
 <kbd>
-  <img src="/media/sender_permissions.png" width="750">
+  <img src="/media/sender_permissions.png" width="300">
 </kbd>
 
 3. Navigate to the FLOWS tab. There's a single flow called *SN Get Changes*. 
+
 <kbd>
   <img src="/media/sn_get_changes_flow.png" width="750">
 </kbd>
  
 
 4. Open the Flow by clicking on the name. The canvas looks like this.
+
 <kbd>
   <img src="/media/sn_get_changes_canvas.png" width="750">
 </kbd>
 
-5. The two custom steps are *SN Get Changes For Slack* (green icon) and *SN Get Changes* (yellow icon). Navigate to the step definitions in the CUSTOM tab on the right of the canvas, by highlighting CUSTOM and scrolling down. The may be flagged as In Development. 
+5. The two custom steps are *SN Get Changes* (yellow icon) and *SN Get Changes For Slack* (green icon). Navigate to the step definitions in the CUSTOM tab on the right of the canvas, by highlighting CUSTOM and scrolling down. The may be flagged as In Development. 
 <kbd>
-  <img src="/media/custom_steps.png" width="750">
+  <img src="/media/custom_steps.png" width="500">
 </kbd>
 
 6. Optional: Using the gear icon on the right of each step, select *Usage Permissions*. By default, custom steps are accessible only to the user who imported the workflow. Usually, you want to grant wider permissions, e.g. so anyone with the Developer role can edit the step, and anyone with the Incident Manager role can use the step.  
